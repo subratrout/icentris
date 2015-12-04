@@ -9,9 +9,9 @@ describe "Viewing the list of users" do
 
     visit users_url
 
-    expect(page).to have_text(user1.name)
-    expect(page).to have_text(user2.name)
-    expect(page).to have_text(user3.name)
+    expect(page).to have_link(user1.name)
+    expect(page).to have_link(user2.name)
+    expect(page).to have_link(user3.name)
   end
 
 end
