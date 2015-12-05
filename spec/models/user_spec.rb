@@ -82,4 +82,24 @@ describe "A user" do
     expect(user.password_digest.present?).to eq(true)
   end
 
+  it "has many contacts" do
+    user = User.new(user_attributes)
+
+    contact1 = user.contacts.new(contact_attributes)
+    contact2 = user.contacts.new(contact_attributes)
+
+    expect(user.contacts).to include(contact1)
+    expect(user.contacts).to include(contact2)
+  end
+
+  it "deletes associated contacts" do
+    user = User.create(user_attributes)
+
+    user.contacts.create(contact_attributes)
+
+    expect {
+      user.destroy
+    }.to change(Contact, :count).by(-1)
+  end
+
 end
