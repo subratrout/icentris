@@ -3,6 +3,7 @@
 </header>
 
 <%= form_for([@user, @contact]) do |f| %>
+  <%= render "shared/errors", object: @contact %>
   <p>
     <%= f.label :name %><br/>
     <%= f.text_field :name, size: 40, autofocus: true %>
