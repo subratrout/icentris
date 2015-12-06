@@ -6,7 +6,7 @@ describe "Creating a new contact" do
 
     visit user_url(user)
 
-    click_link 'Add contact'
+    click_link 'Add Contact'
 
     expect(current_path).to eq(new_user_contact_path(user))
 
@@ -15,7 +15,7 @@ describe "Creating a new contact" do
     fill_in "Phone", with: "234-567-8901"
     fill_in "Address", with: "707 wood cross, Utah"
 
-    click_button 'Add contact'
+    click_button 'Create Contact'
 
     expect(current_path).to eq(user_contacts_path(user))
 
@@ -28,7 +28,7 @@ describe "Creating a new contact" do
     visit new_user_contact_url(user)
 
     expect {
-      click_button 'Add contact'
+      click_button 'Add Contact'
     }.not_to change(contact, :count)
 
     expect(page).to have_text('error')
