@@ -2,26 +2,4 @@
   <h1>New Contact for <%= link_to(@user.name, @user) %></h1>
 </header>
 
-<%= form_for([@user, @contact]) do |f| %>
-  <%= render "shared/errors", object: @contact %>
-  <p>
-    <%= f.label :name %><br/>
-    <%= f.text_field :name, size: 40, autofocus: true %>
-  </p>
-  <p>
-    <%= f.label :email %><br/>
-    <%= f.text_field :email, size: 40, autofocus: true %>
-  </p>
-  <p>
-    <%= f.label :phone %><br/>
-    <%= f.text_field :phone, size: 40, autofocus: true %>
-  </p>
-  <p>
-    <%= f.label :address %><br/>
-    <%= f.text_field :address, size: 40, autofocus: true %>
-  </p>
-  <p>
-    <%= f.submit 'Add Contact' %>
-    <%= link_to "Cancel", @user, class: 'button' %>
-  </p>
-<% end %>
+<%= render 'form' %>

@@ -1,0 +1,23 @@
+<article id="contact">
+  <header>
+    <p>
+      <%= @contact.name %>
+    </p>
+    <p>
+      <%= @contact.email %>
+    </p>
+    <p>
+      <%= @contact.phone %>
+    </p>
+    <p>
+      <%= @contact.address %>
+    </p>
+  </header>
+</article>
+
+
+
+<%= link_to "Edit Contact", edit_user_contact_path(@user, @contact.id),
+                         class: 'button ok contact' %>
+
+<%= link_to 'Delete Contact', user_contact_path(@user, @contact.id), class: 'button', method: :delete, data: { confirm: 'Are you sure?' } %>

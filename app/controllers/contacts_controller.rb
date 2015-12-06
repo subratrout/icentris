@@ -4,6 +4,10 @@ class ContactsController < ApplicationController
     @contacts = @user.contacts
   end
 
+  def show
+    @contact = @user.contacts.find(params[:id])
+  end
+
   def new
     @contact = @user.contacts.new
   end
@@ -16,6 +20,27 @@ class ContactsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @contact = @user.contacts.find(params[:id])
+  end
+
+  def update
+    @contact = @user.contacts.find(params[:id])
+    if @contact.update(contact_params)
+      redirect_to user_contacts_path(@user),
+          notice: "Contacts updated"
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @contact = @user.contacts.find(params[:id])
+    @contact.destroy
+    redirect_to user_contacts_path(@user),
+        notice: "Contact deleted"
   end
 
   private
