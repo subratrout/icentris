@@ -8,3 +8,6 @@
     <h2>Email: <%= mail_to(@user.email) %></h2>
   </header>
 </article>
+
+<%= link_to pluralize(@user.contacts.size, "contact"),
+            user_contacts_path(@user) %>

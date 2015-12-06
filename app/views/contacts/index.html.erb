@@ -1,0 +1,24 @@
+<header id="content-header">
+  <h1>Contacts for <%= link_to(@user.name, @user) %></h1>
+</header>
+<ol>
+  <% @contacts.each do |contact| %>
+    <li>
+      <p>
+        <%= contact.name %>:
+      </p>
+      <p>
+        <%= contact.email %>
+      </p>
+      <p>
+        <%= contact.phone %>
+      </p>
+      <p>
+        <%= contact.address %>
+      </p>
+      <p>
+        <h3> Added <%= time_ago_in_words(contact.created_at) %> ago. </h3>
+      </p>
+    </li>
+  <% end %>
+</ol>

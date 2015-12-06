@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  resources :contacts
   root "users#index"
   get 'signup' => 'users#new'
   get 'signin' => 'sessions#new'
-  resources :users
+  resources :users do
+    resources :contacts
+  end
 
   resource :session
 
