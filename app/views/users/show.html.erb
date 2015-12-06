@@ -11,3 +11,6 @@
 
 <%= link_to pluralize(@user.contacts.size, "contact"),
             user_contacts_path(@user) %>
+
+<%= link_to "Add Contacts", new_user_contact_path(@user),
+                         class: 'button ok contact' %>
