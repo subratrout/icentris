@@ -17,7 +17,7 @@
     <%= f.text_field :address, size: 40, autofocus: true %>
   </p>
   <p>
-    <%= f.submit 'Add Contact' %>
-    <%= link_to "Cancel", @user, class: 'button' %>
+    <%= f.submit 'Add Contact' , class: 'btn btn-success' %>
+    <%= link_to "Cancel", @user, class: 'btn btn-warning' %>
   </p>
 <% end %>

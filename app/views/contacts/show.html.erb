@@ -1,4 +1,4 @@
-<article id="contact">
+<div class="contact-person">
   <header>
     <p>
       <%= @contact.name %>
@@ -13,11 +13,14 @@
       <%= @contact.address %>
     </p>
   </header>
-</article>
+</div>
 
-
+<% if current_user?(@user) %>
 
 <%= link_to "Edit Contact", edit_user_contact_path(@user, @contact.id),
                          class: 'button ok contact' %>
 
 <%= link_to 'Delete Contact', user_contact_path(@user, @contact.id), class: 'button', method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<%= link_to "All Users", users_path, class: 'btn btn-primary' %>

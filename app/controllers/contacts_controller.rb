@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
+  before_action :require_signin
   before_action :set_user
+
   def index
     @contacts = @user.contacts
   end
@@ -14,6 +16,7 @@ class ContactsController < ApplicationController
 
   def create
     @contact = @user.contacts.new(contact_params)
+    @contact.user = current_user
     if @contact.save
       redirect_to user_contacts_path(@user),
             notice: "Contacts added"
@@ -52,4 +55,5 @@ class ContactsController < ApplicationController
   def set_user
     @user = User.find(params[:user_id])
   end
+
 end
