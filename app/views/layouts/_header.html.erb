@@ -1,11 +1,14 @@
-<nav>
-  <p>
-    <% if current_user %>
-      <h2> Hi, <%= link_to current_user.name, current_user %></h2>
-      <%= link_to 'Sign Out', session_path, method: :delete, class: 'button' %>
-    <% else %>
-      <%= link_to 'Sign Up', signup_path, class: 'button' %>
-      <%= link_to 'Sign In', new_session_path, class: 'button' %>
-    <% end %>
-  </p>
-</nav>
+<div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <% if current_user %>
+        <h4> Hi, <%= link_to current_user.name, current_user %></h4>
+        <%= link_to 'Sign Out', session_path, method: :delete, class: 'button btn btn-primary' %>
+      <% else %>
+        <li role="presentation"><%= link_to 'Sign Up', signup_path, class: 'btn btn-large btn-primary' %></li>
+        <li role="presentation"><%= link_to 'Sign In', new_session_path, class: 'btn btn-large btn-primary' %></li>
+      <% end %>
+    </ul>
+  </nav>
+  <h3 class="text-muted">Address Book</h3>
+</div>

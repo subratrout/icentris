@@ -1,27 +1,27 @@
 <header id="content-header">
   <h1>Contacts for <%= link_to(@user.name, @user) %></h1>
 </header>
-<ol>
+<div class="contact-box">
   <% @contacts.each do |contact| %>
-    <li>
-      <p>
-        <%= link_to contact.name, user_contact_path(@user, contact) %>:
-      </p>
-      <p>
-        <%= contact.email %>
-      </p>
-      <p>
-        <%= contact.phone %>
-      </p>
-      <p>
-        <%= contact.address %>
-      </p>
-      <p>
-        <h3> Added <%= time_ago_in_words(contact.created_at) %> ago. </h3>
-      </p>
-    </li>
+      <div class="contact-person">
+
+          <h4> Name: <%= link_to contact.name, user_contact_path(@user, contact) %></h4>
+
+        <p>
+          Email: <%= contact.email %>
+        </p>
+        <p>
+          Phone: <%= contact.phone %>
+        </p>
+        <p>
+          Adress: <%= contact.address %>
+        </p>
+        <p>
+          <h5> Added <%= time_ago_in_words(contact.created_at) %> ago. </h5>
+        </p>
+      </div>
   <% end %>
-</ol>
+</div>
 
 <%= link_to "Add Contacts", new_user_contact_path(@user),
-                         class: 'button ok contact' %>
+                         class: 'button ok contact host' %>

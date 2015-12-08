@@ -12,3 +12,20 @@
   border-radius: 5px;
   padding: 5px;
 }
+.contact-person {
+  background-color: yellow;
+  border: 2px solid blue;
+  border-radius: 5px;
+  height: 180px;
+  margin: 5px 0 5px 20px;
+  padding: 15px;
+  width: 300px;
+  h5 {
+    font-size: 0.8em;
+    margin-left: 50px;
+  }
+}
+
+.host {
+  margin-left: 180px;
+}
